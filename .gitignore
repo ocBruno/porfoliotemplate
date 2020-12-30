@@ -29,7 +29,6 @@ build/
 .gradle
 local.properties
 *.iml
-
 # node.js
 #
 node_modules/
@@ -62,3 +61,5 @@ buck-out/
 # Expo
 .expo/*
 web-build/
+/android
+/ios
