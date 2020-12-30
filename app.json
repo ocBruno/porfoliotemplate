@@ -1,0 +1,12 @@
+{
+  "name": "portfoliotemplate",
+  "displayName": "portfoliotemplate",
+  "expo": {
+    "name": "portfoliotemplate",
+    "slug": "portfoliotemplate",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
