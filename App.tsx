@@ -10,7 +10,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack  = createStackNavigator()
 
 export type RootStackParamList = {
-  Home: { title: string };
+  Home: { 
+    title: string,
+},
   Profile: {title: string}
 };
 
@@ -41,12 +43,38 @@ const App: React.FC = () =>  {
   }
 
   return (
-    <NavigationContainer>{
+    <NavigationContainer>{ 
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Bruno\'s Curriculum' }}
+          options={{
+            title: 'Bruno\'s Curriculum' ,
+            transitionSpec: {
+              open: {
+                animation: 'spring',
+                config: {
+                  stiffness: 2000,
+                  damping: 500,
+                  mass: 3,
+                  overshootClamping: true,
+                  restDisplacementThreshold: 0.01,
+                  restSpeedThreshold: 0.01,
+                }
+              },
+              close:{
+                animation: 'spring',
+                config: {
+                  stiffness: 1000,
+                  damping: 500,
+                  mass: 3,
+                  overshootClamping: true,
+                  restDisplacementThreshold: 0.01,
+                  restSpeedThreshold: 0.01,
+                }
+              },
+            }
+          }}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'More about me'}} />
       </Stack.Navigator>

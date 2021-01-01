@@ -36,8 +36,14 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> =  (prop
 
     return(
         <View style={styles.container}>
-        <InfoCard header="Experience" title="Skills" content="Html5 CSS3 Javascript React" />
-
+        <InfoCard 
+          topbarTitle="About Me" 
+          header="Experience"
+          subHeader="Frontend Web Development"
+        >
+          Professional office and remote experience with frontend web development using HTML5, CSS, Javascript, React and other frameworks/libraries in an agile team participating in daily / weekly tech meetings in english and portuguese. Currently focusing on learning react native and typescript until my next professional opportunity arises."
+        </InfoCard>
+    
         </View>
     )
 }

@@ -12,10 +12,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-    reactLogo: {
-      width: 66,
-      height: 58,
-      resizeMode: 'contain'
+  skillLogo: {
+    flex: 1,
+    width: 20,
+    height: 20,
+    resizeMode: 'contain'
   },
 });
 
@@ -37,18 +38,46 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> =  ({route, na
 
     return(
       <View style={styles.container}>
+        <InfoCard topbarTitle="Skills" header="Bruno Costa" subHeader="Frontend Web/Mobile Developer." >
+          <View>
+            <Text >
+              Html5
+            <Image
+                style={styles.skillLogo}
+                source={require('../public/icons/html5.png')}
+              />
+            </Text> 
+            <Text style={{flexDirection: 'row'}}>
+              CSS3
+            <Image
+                style={styles.skillLogo}
+                source={require('../public/icons/css.png')}
+              />
+            </Text>
+            <Text >
+              Javascript
+              <Image
+                style={styles.skillLogo}
+                source={require('../public/icons/js.png')}
+              />
+            </Text>
+            <Text>
+              React
+              <Image
+                style={styles.skillLogo}
+                source={require('../public/icons/react.png')}
+              />
+            </Text>
+          </View>
+        </InfoCard>
 
-        <InfoCard header="Bruno Costa" title="Me" content="Frontend Web/Mobile Developer" />
                 <Button
       title="More about me"
       onPress={() =>
         navigation.navigate('Profile', { title: 'Jane' })
       }
     />
-      <Image
-        style={styles.reactLogo}
-        source={require('../public/reacticon.svg')}
-      />
+
 
     </View>
     )
