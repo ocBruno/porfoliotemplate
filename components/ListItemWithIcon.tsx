@@ -1,19 +1,16 @@
-import React, { ReactNode, useRef } from "react";
+import React from "react";
 import {
-  Animated,
   StyleSheet,
-  StyleSheetProperties,
   Text,
   Image,
   View,
-  PanResponder,
   ImageSourcePropType,
 } from "react-native";
 
 const styles = StyleSheet.create({
   skillContainer: {
     flex: 1,
-    height: 30,
+    height: 33,
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -28,18 +25,18 @@ const styles = StyleSheet.create({
     width: 120,
   },
 });
-interface ListItemWithImageProps {
+interface ListItemWithIconProps {
   title: string;
-  image: ImageSourcePropType;
+  iconStaticSource: ImageSourcePropType;
 }
 
-export const ListItemWithImage: React.FunctionComponent<ListItemWithImageProps> = (
-  props: ListItemWithImageProps
+export const ListItemWithIcon: React.FunctionComponent<ListItemWithIconProps> = (
+  props: ListItemWithIconProps
 ) => {
   return (
     <View style={styles.skillContainer}>
       <Text style={styles.skillText}>{props.title}</Text>
-      <Image style={styles.skillLogo} source={props.image} />
+      <Image style={styles.skillLogo} source={props.iconStaticSource} />
     </View>
   );
 };

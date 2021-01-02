@@ -1,17 +1,10 @@
+import React from "react";
 import { RouteProp } from "@react-navigation/native";
-import React, { useRef } from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  PanResponder,
-  Button,
-} from "react-native";
+import { StyleSheet, View, Button, Pressable } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { InfoCard } from "../components/InfoCard";
 import { RootStackParamList } from "../App";
-import { ListItemWithImage } from "../components/ListItemWithImage";
+import { ListItemWithIcon } from "../components/ListItemWithIcon";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,6 +12,16 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(248, 248, 250)",
     alignItems: "center",
     justifyContent: "center",
+  },
+  moreAboutMeButton: {
+    position: "absolute",
+    bottom: 20,
+    right: 20,
+  },
+  getInContactButton: {
+    position: "absolute",
+    bottom: 80,
+    right: 20,
   },
 });
 
@@ -37,35 +40,46 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
 }: HomeScreenProps) => {
   return (
     <View style={styles.container}>
+      <Pressable></Pressable>
+
       <InfoCard
-        topbarTitle="Skills"
+        topbarTitle="Who"
         header="Bruno Costa"
-        subHeader="Frontend Web/Mobile Developer."
+        subHeader="Frontend Web/Mobile Developer"
       >
         <View>
-          <ListItemWithImage
+          <ListItemWithIcon
             title="HTML"
-            image={require("../public/icons/html.png")}
+            iconStaticSource={require("../public/icons/html.png")}
           />
-          <ListItemWithImage
+          <ListItemWithIcon
             title="CSS"
-            image={require("../public/icons/css.png")}
+            iconStaticSource={require("../public/icons/css.png")}
           />
-          <ListItemWithImage
+          <ListItemWithIcon
             title="Javascript"
-            image={require("../public/icons/js.png")}
+            iconStaticSource={require("../public/icons/js.png")}
           />
-          <ListItemWithImage
+          <ListItemWithIcon
             title="React"
-            image={require("../public/icons/react.png")}
+            iconStaticSource={require("../public/icons/react.png")}
           />
         </View>
       </InfoCard>
-
-      <Button
-        title="More about me"
-        onPress={() => navigation.navigate("Profile", { title: "Jane" })}
-      />
+      <View style={styles.moreAboutMeButton}>
+        <Button
+          color="rgb(157, 175, 224)"
+          title="More about me"
+          onPress={() => navigation.navigate("Profile", {})}
+        />
+      </View>
+      <View style={styles.getInContactButton}>
+        <Button
+          color="rgb(104, 116, 175)"
+          title="Get in contact"
+          onPress={() => navigation.navigate("Contact", {})}
+        />
+      </View>
     </View>
   );
 };
