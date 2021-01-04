@@ -50,6 +50,10 @@ export const ContactScreen: React.FunctionComponent<ContactScreenProps> = ({
             iconStaticSource={require("../public/icons/linkedin.png")}
           />
           <ListItemWithIcon
+            title="Github"
+            iconStaticSource={require("../public/icons/github.png")}
+          />
+          <ListItemWithIcon
             title="Email"
             iconStaticSource={require("../public/icons/email.png")}
           />

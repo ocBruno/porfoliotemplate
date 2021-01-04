@@ -1,15 +1,13 @@
+
 import React from "react";
 import { StyleSheet } from "react-native";
-import { AppLoading } from "expo";
-import { Container, Text } from "native-base";
-import * as Font from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import "react-native-gesture-handler";
-
-import { HomeScreen } from "./screens/HomeScreen";
+// Note: test renderer must be required after react-native.
+import renderer from 'react-test-renderer';
+import { HomeScreen } from "../screens/HomeScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { ContactScreen } from "./screens/ContactScreen";
 
@@ -35,8 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const App: React.FC = () => {
-  return (
+    it('renders correctly', () => {
     <NavigationContainer theme={DefaultTheme}>
       {
         <Stack.Navigator>
@@ -87,4 +84,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+});

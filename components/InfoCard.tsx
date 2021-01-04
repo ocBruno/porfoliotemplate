@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     maxWidth: 240,
+    position: "relative",
     paddingVertical: 20,
     paddingHorizontal: 15,
     backgroundColor: "rgb(255, 255, 255)",
