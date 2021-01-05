@@ -1,17 +1,17 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { AppLoading } from "expo";
-import { Container, Text } from "native-base";
-import * as Font from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { AppLoading } from 'expo';
+import { Container, Text } from 'native-base';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
 
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import "react-native-gesture-handler";
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import 'react-native-gesture-handler';
 
-import { HomeScreen } from "./screens/HomeScreen";
-import { ProfileScreen } from "./screens/ProfileScreen";
-import { ContactScreen } from "./screens/ContactScreen";
+import { HomeScreen } from './screens/HomeScreen';
+import { ProfileScreen } from './screens/ProfileScreen';
+import { ContactScreen } from './screens/ContactScreen';
 
 const Stack = createStackNavigator();
 
@@ -24,14 +24,14 @@ export type RootStackParamList = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(248, 248, 250)",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: 'rgb(248, 248, 250)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   reactLogo: {
     width: 66,
     height: 58,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
 });
 
@@ -44,10 +44,10 @@ const App: React.FC = () => {
             name="Home"
             component={HomeScreen}
             options={{
-              title: "Bruno Costa",
+              title: 'Bruno Costa',
               transitionSpec: {
                 open: {
-                  animation: "spring",
+                  animation: 'spring',
                   config: {
                     stiffness: 2000,
                     damping: 500,
@@ -58,7 +58,7 @@ const App: React.FC = () => {
                   },
                 },
                 close: {
-                  animation: "spring",
+                  animation: 'spring',
                   config: {
                     stiffness: 1000,
                     damping: 500,
@@ -74,12 +74,12 @@ const App: React.FC = () => {
           <Stack.Screen
             name="Profile"
             component={ProfileScreen}
-            options={{ title: "About Me" }}
+            options={{ title: 'About Me' }}
           />
           <Stack.Screen
             name="Contact"
             component={ContactScreen}
-            options={{ title: "Contact" }}
+            options={{ title: 'Contact' }}
           />
         </Stack.Navigator>
       }
