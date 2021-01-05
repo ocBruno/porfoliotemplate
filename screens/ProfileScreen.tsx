@@ -1,29 +1,25 @@
-import React from "react";
-import { StyleSheet, Button, View } from "react-native";
-import { InfoCard } from "../components/InfoCard";
-import { RouteProp } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../App";
+import React from 'react';
+import { StyleSheet, Button, View } from 'react-native';
+import { InfoCard } from '../components/InfoCard';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../App';
+import { ReturnButton } from '../components/Buttons/ReturnButton';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(248, 248, 250)",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  returnButton: {
-    position: "absolute",
-    bottom: 20,
-    right: 20,
+    backgroundColor: 'rgb(248, 248, 250)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
-type ProfileScreenRouteProp = RouteProp<RootStackParamList, "Profile">;
+type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Profile'>;
 
 type ProfileScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
-  "Profile"
+  'Profile'
 >;
 
 type ProfileScreenProps = {
@@ -47,13 +43,7 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
         experience in an agile team participating in daily / weekly tech
         meetings in english and portuguese.
       </InfoCard>
-      <View style={styles.returnButton}>
-        <Button
-          color="rgb(104, 116, 175)"
-          title="Go back"
-          onPress={() => navigation.navigate("Home", {})}
-        />
-      </View>
+      <ReturnButton />
     </View>
   );
 };

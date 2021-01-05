@@ -8,7 +8,7 @@ import {
   View,
   ImageSourcePropType,
 } from 'react-native';
-import * as Linking from 'expo-linking';
+import { handlePressRedirect } from '../helpers/routing';
 
 const styles = StyleSheet.create({
   skillContainer: {
@@ -38,24 +38,15 @@ export const ListItemWithIcon: React.FunctionComponent<ListItemWithIconProps> = 
   props: ListItemWithIconProps
 ) => {
   const isItemLink = props.href === undefined ? false : true;
-
-  function handlePressRedirect(href: string | undefined) {
-    href
-      ? Linking.openURL(href)
-      : console.error(`ListItem href prop undefined`);
-  }
-
   if (isItemLink === true) {
     return (
-      <Pressable
+      <TouchableOpacity
         onPress={() => handlePressRedirect(props.href)}
         style={styles.skillContainer}
       >
-        <TouchableOpacity style={styles.skillContainer}>
-          <Text style={styles.skillText}>{props.title}</Text>
-          <Image style={styles.skillLogo} source={props.iconStaticSource} />
-        </TouchableOpacity>
-      </Pressable>
+        <Text style={styles.skillText}>{props.title}</Text>
+        <Image style={styles.skillLogo} source={props.iconStaticSource} />
+      </TouchableOpacity>
     );
   } else {
     return (
