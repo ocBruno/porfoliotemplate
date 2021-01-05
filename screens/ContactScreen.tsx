@@ -1,31 +1,31 @@
-import React from "react";
-import { RouteProp } from "@react-navigation/native";
-import { StyleSheet, View, Button } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { InfoCard } from "../components/InfoCard";
-import { RootStackParamList } from "../App";
-import { ListItemWithIcon } from "../components/ListItemWithIcon";
+import React from 'react';
+import { RouteProp } from '@react-navigation/native';
+import { StyleSheet, View, Button } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { InfoCard } from '../components/InfoCard';
+import { RootStackParamList } from '../App';
+import { ListItemWithIcon } from '../components/ListItemWithIcon';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(248, 248, 250)",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: 'rgb(248, 248, 250)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   returnButton: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 20,
     right: 20,
   },
 });
 
-type ContactScreenRouteProp = RouteProp<RootStackParamList, "Contact">;
+type ContactScreenRouteProp = RouteProp<RootStackParamList, 'Contact'>;
 
 type ContactScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
-  "Contact"
+  'Contact'
 >;
 
 type ContactScreenProps = {
@@ -46,16 +46,19 @@ export const ContactScreen: React.FunctionComponent<ContactScreenProps> = ({
       >
         <View>
           <ListItemWithIcon
+            href="https://www.linkedin.com/in/bruno-costa-aa15b81ab/"
             title="LinkedIn"
-            iconStaticSource={require("../public/icons/linkedin.png")}
+            iconStaticSource={require('../public/icons/linkedin.png')}
           />
           <ListItemWithIcon
+            href="https://github.com/ocBruno"
             title="Github"
-            iconStaticSource={require("../public/icons/github.png")}
+            iconStaticSource={require('../public/icons/github.png')}
           />
           <ListItemWithIcon
+            href="mailto:brunocgmxus@gmail.com"
             title="Email"
-            iconStaticSource={require("../public/icons/email.png")}
+            iconStaticSource={require('../public/icons/email.png')}
           />
         </View>
       </InfoCard>
@@ -63,7 +66,7 @@ export const ContactScreen: React.FunctionComponent<ContactScreenProps> = ({
         <Button
           color="rgb(104, 116, 175)"
           title="Go back"
-          onPress={() => navigation.navigate("Home", {})}
+          onPress={() => navigation.navigate('Home', {})}
         />
       </View>
     </View>

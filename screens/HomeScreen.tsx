@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { RouteProp } from '@react-navigation/native';
-import { StyleSheet, View, Button, Pressable } from 'react-native';
+import { StyleSheet, View, Button, Pressable, Animated } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { InfoCard } from '../components/InfoCard';
 import { RootStackParamList } from '../App';
@@ -47,8 +47,22 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   route,
   navigation,
 }: HomeScreenProps) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      useNativeDriver: false,
+      duration: 300,
+    }).start();
+  }, [fadeAnim]);
+
   return (
-    <View style={styles.container}>
+    <Animated.View // Special animatable View
+      style={{
+        ...styles.container,
+        right: fadeAnim, // Bind opacity to animated value
+      }}
+    >
       <LinearGradient
         colors={[
           'rgb(255, 255, 255)',
@@ -97,6 +111,6 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           />
         </View>
       </LinearGradient>
-    </View>
+    </Animated.View>
   );
 };

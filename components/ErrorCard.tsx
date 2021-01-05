@@ -10,11 +10,12 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 15,
     backgroundColor: 'rgb(255, 255, 255)',
+    color: 'rgb(224, 16, 16)',
     borderWidth: 1,
     borderRadius: 9,
     borderStyle: 'solid',
-    borderColor: 'rgb(149, 200, 255)',
-    shadowColor: 'rgb(168, 210, 255)',
+    borderColor: 'rgb(255, 149, 149)',
+    shadowColor: 'rgb(255, 168, 168)',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -44,17 +45,18 @@ const styles = StyleSheet.create({
     color: '#0f0404',
   },
 });
-interface InfoCardProps {
+interface ErrorCardProps {
   topbarTitle: string;
   header: string;
   subHeader: string;
   children: ReactNode;
 }
 
-export const InfoCard: React.FunctionComponent<InfoCardProps> = (
-  props: InfoCardProps
+export const ErrorCard: React.FunctionComponent<ErrorCardProps> = (
+  props: ErrorCardProps
 ) => {
   const fadeInFromRightAnimation = useRef(new Animated.Value(100)).current; // Initial value for right: 100
+
   useEffect(() => {
     Animated.timing(fadeInFromRightAnimation, {
       toValue: 0,
