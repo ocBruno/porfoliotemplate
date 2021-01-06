@@ -9,11 +9,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   returnButton: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
+    bottom: 30,
+    right: 30,
   },
 });
 export const ReturnButton = () => {
@@ -21,9 +20,10 @@ export const ReturnButton = () => {
   return (
     <View style={styles.returnButton}>
       <Button
-        color="rgb(104, 116, 175)"
+        color="rgb(70, 133, 236)"
         title="Go back"
         onPress={() => navigation.goBack()}
+        accessibilityLabel="Return to the previous page"
       />
     </View>
   );

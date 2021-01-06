@@ -1,35 +1,42 @@
 import React from 'react';
 import { RouteProp } from '@react-navigation/native';
-import { StyleSheet, View, Button, Pressable, Animated } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Button,
+  Pressable,
+  Animated,
+  Image,
+} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { InfoCard } from '../components/InfoCard';
 import { RootStackParamList } from '../App';
 import { ListItemWithIcon } from '../components/ListItemWithIcon';
-import { appStyles } from '../styles';
+import { EntranceScreen } from '../components/Screens/EntranceScreen';
 
 const screenStyles = StyleSheet.create({
-  entranceScreenCard: {
+  entranceScreenContainer: {
     flex: 1,
-    backgroundColor: 'rgb(248, 248, 250)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  gradientContainer: {
-    position: 'relative',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: `100%`,
-    height: `100%`,
-  },
+
   moreAboutMeButton: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
+    bottom: 30,
+    right: 40,
   },
   getInContactButton: {
     position: 'absolute',
-    bottom: 80,
-    right: 20,
+    bottom: 90,
+    right: 40,
+  },
+  homeBackgroundImage: {
+    position: 'absolute',
+    top: 0,
+    width: 1000,
+    height: 300,
+    resizeMode: 'cover',
   },
 });
 
@@ -47,51 +54,51 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   navigation,
 }: HomeScreenProps) => {
   return (
-    <View
-      // appStyles get overwridden by screenStyles in this line order
-      style={{
-        ...appStyles.entranceScreenCard,
-        ...screenStyles.entranceScreenCard,
-      }}
-    >
-      <InfoCard
-        topbarTitle="Who"
-        header="Bruno Costa"
-        subHeader="Frontend Web/Mobile Developer"
-      >
-        <View>
-          <ListItemWithIcon
-            title="HTML"
-            iconStaticSource={require('../public/icons/html.png')}
-          />
-          <ListItemWithIcon
-            title="CSS"
-            iconStaticSource={require('../public/icons/css.png')}
-          />
-          <ListItemWithIcon
-            title="Javascript"
-            iconStaticSource={require('../public/icons/js.png')}
-          />
-          <ListItemWithIcon
-            title="React"
-            iconStaticSource={require('../public/icons/react.png')}
+    <EntranceScreen>
+      <View style={screenStyles.entranceScreenContainer}>
+        <Image
+          style={screenStyles.homeBackgroundImage}
+          source={require('../public/backgrounds/homeBackgroundImage.jpg')}
+        />
+        <InfoCard
+          topbarTitle="Who"
+          header="Bruno Costa"
+          subHeader="Frontend Web/Mobile Developer"
+        >
+          <View>
+            <ListItemWithIcon
+              title="HTML"
+              iconStaticSource={require('../public/icons/html.png')}
+            />
+            <ListItemWithIcon
+              title="CSS"
+              iconStaticSource={require('../public/icons/css.png')}
+            />
+            <ListItemWithIcon
+              title="Javascript"
+              iconStaticSource={require('../public/icons/js.png')}
+            />
+            <ListItemWithIcon
+              title="React"
+              iconStaticSource={require('../public/icons/react.png')}
+            />
+          </View>
+        </InfoCard>
+        <View style={screenStyles.moreAboutMeButton}>
+          <Button
+            color="rgb(78, 121, 240)"
+            title="More about me"
+            onPress={() => navigation.navigate('Profile', {})}
           />
         </View>
-      </InfoCard>
-      <View style={screenStyles.moreAboutMeButton}>
-        <Button
-          color="rgb(157, 175, 224)"
-          title="More about me"
-          onPress={() => navigation.navigate('Profile', {})}
-        />
+        <View style={screenStyles.getInContactButton}>
+          <Button
+            color="rgb(130, 151, 255)"
+            title="Get in contact"
+            onPress={() => navigation.navigate('Contact', {})}
+          />
+        </View>
       </View>
-      <View style={screenStyles.getInContactButton}>
-        <Button
-          color="rgb(104, 116, 175)"
-          title="Get in contact"
-          onPress={() => navigation.navigate('Contact', {})}
-        />
-      </View>
-    </View>
+    </EntranceScreen>
   );
 };

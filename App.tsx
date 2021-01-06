@@ -8,6 +8,7 @@ import { HomeScreen } from './screens/HomeScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { ContactScreen } from './screens/ContactScreen';
 import { ErrorBoundaryCard } from './components/ErrorBoundaryCard';
+import { StyleSheet } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -33,12 +34,16 @@ const App: React.FC = () => {
             <Stack.Screen
               name="Profile"
               component={ProfileScreen}
-              options={{ title: 'About Me' }}
+              options={{
+                title: 'About Me',
+              }}
             />
             <Stack.Screen
               name="Contact"
               component={ContactScreen}
-              options={{ title: 'Contact' }}
+              options={{
+                title: 'Contact',
+              }}
             />
           </Stack.Navigator>
         }
