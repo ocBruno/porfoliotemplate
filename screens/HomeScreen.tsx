@@ -9,9 +9,9 @@ import {
   Image,
 } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { InfoCard } from '../components/InfoCard';
+import { InfoCard } from '../components/Cards/InfoCard';
 import { RootStackParamList } from '../App';
-import { ListItemWithIcon } from '../components/ListItemWithIcon';
+import { ListItemWithIcon } from '../components/Utils/ListItemWithIcon';
 import { EntranceScreen } from '../components/Screens/EntranceScreen';
 
 const screenStyles = StyleSheet.create({
@@ -84,18 +84,18 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
             />
           </View>
         </InfoCard>
-        <View style={screenStyles.moreAboutMeButton}>
-          <Button
-            color="rgb(78, 121, 240)"
-            title="More about me"
-            onPress={() => navigation.navigate('Profile', {})}
-          />
-        </View>
         <View style={screenStyles.getInContactButton}>
           <Button
             color="rgb(130, 151, 255)"
             title="Get in contact"
             onPress={() => navigation.navigate('Contact', {})}
+          />
+        </View>
+        <View style={screenStyles.moreAboutMeButton}>
+          <Button
+            color="rgb(78, 121, 240)"
+            title="More about me"
+            onPress={() => navigation.navigate('Profile', {})}
           />
         </View>
       </View>

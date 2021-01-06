@@ -8,7 +8,7 @@ import {
   View,
   ImageSourcePropType,
 } from 'react-native';
-import { handlePressRedirect } from '../helpers/routing';
+import { handlePressRedirect } from '../../helpers/routing';
 
 const styles = StyleSheet.create({
   skillContainer: {

@@ -7,7 +7,7 @@ import 'react-native-gesture-handler';
 import { HomeScreen } from './screens/HomeScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { ContactScreen } from './screens/ContactScreen';
-import { ErrorBoundaryCard } from './components/ErrorBoundaryCard';
+import { ErrorBoundaryCard } from './components/Cards/ErrorBoundaryCard';
 import { StyleSheet } from 'react-native';
 
 const Stack = createStackNavigator();
@@ -18,10 +18,18 @@ export type RootStackParamList = {
   Contact: {};
 };
 
+const EntranceTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgb(78, 121, 240)',
+  },
+};
+
 const App: React.FC = () => {
   return (
     <ErrorBoundaryCard>
-      <NavigationContainer>
+      <NavigationContainer theme={EntranceTheme}>
         {
           <Stack.Navigator>
             <Stack.Screen

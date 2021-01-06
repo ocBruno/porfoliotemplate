@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { InfoCard } from '../components/InfoCard';
+import { InfoCard } from '../components/Cards/InfoCard';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
@@ -10,7 +10,7 @@ import { EntranceScreen } from '../components/Screens/EntranceScreen';
 const screenStyles = StyleSheet.create({
   entranceScreenContainer: {
     flex: 1,
-    backgroundColor: 'rgb(117, 204, 255)',
+    backgroundColor: 'rgb(206, 237, 255)',
     alignItems: 'center',
     justifyContent: 'center',
   },

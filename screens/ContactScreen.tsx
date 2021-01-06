@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import { InfoCard } from '../components/InfoCard';
-import { ListItemWithIcon } from '../components/ListItemWithIcon';
+import { InfoCard } from '../components/Cards/InfoCard';
+import { ListItemWithIcon } from '../components/Utils/ListItemWithIcon';
 import { ReturnButton } from '../components/Buttons/ReturnButton';
 import { EntranceScreen } from '../components/Screens/EntranceScreen';
 
