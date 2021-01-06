@@ -1,39 +1,28 @@
 import React from 'react';
-import { RouteProp } from '@react-navigation/native';
 import { StyleSheet, View, Button } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { InfoCard } from '../components/InfoCard';
-import { RootStackParamList } from '../App';
 import { ListItemWithIcon } from '../components/ListItemWithIcon';
 import { ReturnButton } from '../components/Buttons/ReturnButton';
+import { appStyles } from '../styles';
 
-const styles = StyleSheet.create({
-  container: {
+const screenStyles = StyleSheet.create({
+  entranceScreenCard: {
     flex: 1,
-    backgroundColor: 'rgb(248, 248, 250)',
+    backgroundColor: 'rgb(153, 67, 67)',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
-type ContactScreenRouteProp = RouteProp<RootStackParamList, 'Contact'>;
-
-type ContactScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Contact'
->;
-
-type ContactScreenProps = {
-  navigation: ContactScreenNavigationProp;
-  route: ContactScreenRouteProp;
-};
-
-export const ContactScreen: React.FunctionComponent<ContactScreenProps> = ({
-  route,
-  navigation,
-}: ContactScreenProps) => {
+export const ContactScreen: React.FunctionComponent = () => {
   return (
-    <View style={styles.container}>
+    <View
+      // appStyles get overwridden by screenStyles in this line order
+      style={{
+        ...appStyles.entranceScreenCard,
+        ...screenStyles.entranceScreenCard,
+      }}
+    >
       <InfoCard
         topbarTitle="Contact"
         header="Open to new opportunities!"

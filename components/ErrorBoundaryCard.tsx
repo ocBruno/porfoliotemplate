@@ -48,25 +48,24 @@ const styles = StyleSheet.create({
 });
 interface ErrorBoundaryCardProps {}
 
-export class ErrorBoundaryCard extends React.Component {
+export class ErrorBoundaryCard extends React.Component<
+  {},
+  { error: any; errorInfo: any }
+> {
   constructor(props: ErrorBoundaryCardProps) {
     super(props);
     this.state = { error: null, errorInfo: null };
   }
-  componentDidMount() {}
-  componentDidCatch(error, errorInfo) {
-    // Catch errors in any components below and re-render with error message
+  componentDidCatch(error: any, errorInfo: any) {
     this.setState({
       error: error,
       errorInfo: errorInfo,
     });
-    // You can also log error messages to an error reporting service here
+    // TODO: log error messages to an error reporting service here
   }
 
   render() {
-    if (this.state.errorInfo) {
-      // Error path
-
+    if (this.state.errorInfo !== null) {
       return (
         <Animated.View
           style={{
@@ -80,8 +79,8 @@ export class ErrorBoundaryCard extends React.Component {
           </Text>
         </Animated.View>
       );
+    } else {
+      return this.props.children;
     }
-    // Normally, just render children
-    return this.props.children;
   }
 }

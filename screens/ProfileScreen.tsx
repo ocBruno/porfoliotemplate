@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { InfoCard } from '../components/InfoCard';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
 import { ReturnButton } from '../components/Buttons/ReturnButton';
+import { appStyles } from '../styles';
 
-const styles = StyleSheet.create({
-  container: {
+const screenStyles = StyleSheet.create({
+  entranceScreenCard: {
     flex: 1,
-    backgroundColor: 'rgb(248, 248, 250)',
+    backgroundColor: 'rgb(140, 140, 255)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -32,7 +33,13 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
   navigation,
 }: ProfileScreenProps) => {
   return (
-    <View style={styles.container}>
+    <View
+      // appStyles get overwridden by screenStyles in this line order
+      style={{
+        ...appStyles.entranceScreenCard,
+        ...screenStyles.entranceScreenCard,
+      }}
+    >
       <InfoCard
         topbarTitle="About Me"
         header="Experience"

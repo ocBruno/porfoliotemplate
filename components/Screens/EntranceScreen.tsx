@@ -45,15 +45,12 @@ const styles = StyleSheet.create({
     color: '#0f0404',
   },
 });
-interface InfoCardProps {
-  topbarTitle: string;
-  header: string;
-  subHeader: string;
+interface EntranceScreenProps {
   children: ReactNode;
 }
 
-export const InfoCard: React.FunctionComponent<InfoCardProps> = (
-  props: InfoCardProps
+export const EntranceScreen: React.FunctionComponent<EntranceScreenProps> = (
+  props: EntranceScreenProps
 ) => {
   const fadeInFromRightAnimation = useRef(new Animated.Value(100)).current; // Initial value for right: 100
   useEffect(() => {
@@ -71,9 +68,6 @@ export const InfoCard: React.FunctionComponent<InfoCardProps> = (
         right: fadeInFromRightAnimation,
       }}
     >
-      <Text style={styles.topbarTitle}>{props.topbarTitle}</Text>
-      <Text style={styles.header}>{props.header}</Text>
-      <Text style={styles.subHeader}>{props.subHeader}</Text>
       <Text style={styles.content}>{props.children}</Text>
     </Animated.View>
   );

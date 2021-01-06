@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
@@ -9,6 +8,7 @@ import { HomeScreen } from './screens/HomeScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { ContactScreen } from './screens/ContactScreen';
 import { ErrorBoundaryCard } from './components/ErrorBoundaryCard';
+
 const Stack = createStackNavigator();
 
 export type RootStackParamList = {
@@ -17,24 +17,10 @@ export type RootStackParamList = {
   Contact: {};
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(248, 248, 250)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  reactLogo: {
-    width: 66,
-    height: 58,
-    resizeMode: 'contain',
-  },
-});
-
 const App: React.FC = () => {
   return (
     <ErrorBoundaryCard>
-      <NavigationContainer theme={DefaultTheme}>
+      <NavigationContainer>
         {
           <Stack.Navigator>
             <Stack.Screen
@@ -42,30 +28,6 @@ const App: React.FC = () => {
               component={HomeScreen}
               options={{
                 title: 'Bruno Costa',
-                transitionSpec: {
-                  open: {
-                    animation: 'spring',
-                    config: {
-                      stiffness: 2000,
-                      damping: 500,
-                      mass: 3,
-                      overshootClamping: true,
-                      restDisplacementThreshold: 0.01,
-                      restSpeedThreshold: 0.01,
-                    },
-                  },
-                  close: {
-                    animation: 'spring',
-                    config: {
-                      stiffness: 1000,
-                      damping: 500,
-                      mass: 3,
-                      overshootClamping: true,
-                      restDisplacementThreshold: 0.01,
-                      restSpeedThreshold: 0.01,
-                    },
-                  },
-                },
               }}
             />
             <Stack.Screen
