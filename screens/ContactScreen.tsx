@@ -4,13 +4,21 @@ import { InfoCard } from '../components/Cards/InfoCard';
 import { ListItemWithIcon } from '../components/Utils/ListItemWithIcon';
 import { ReturnButton } from '../components/Buttons/ReturnButton';
 import { EntranceScreenContainer } from '../components/Containers/EntranceScreenContainer';
+import FormCard from '../components/Cards/FormCard';
 
 const styles = StyleSheet.create({
   entranceScreenContainer: {
     flex: 1,
     backgroundColor: 'rgb(22, 44, 87)',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    paddingTop: 20,
+    paddingLeft: 20,
+  },
+  formCardStyle: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
   },
 });
 
@@ -18,6 +26,14 @@ export const ContactScreen: React.FunctionComponent = () => {
   return (
     <EntranceScreenContainer>
       <View style={styles.entranceScreenContainer}>
+        <FormCard
+          style={styles.formCardStyle}
+          formHeader="Email"
+          formDescription="Send me an email"
+          singleLineInputPlaceholder="Subject"
+          multiLineInputPlaceholder="Body"
+          submitButtonTitle="Send"
+        />
         <InfoCard
           topbarTitle="Contact"
           header="Open to new opportunities!"
@@ -25,18 +41,18 @@ export const ContactScreen: React.FunctionComponent = () => {
         >
           <View>
             <ListItemWithIcon
-              href="https://www.linkedin.com/in/bruno-costa-aa15b81ab/"
               title="LinkedIn"
+              href="https://www.linkedin.com/in/bruno-costa-aa15b81ab/"
               iconStaticSource={require('../public/icons/linkedin.png')}
             />
             <ListItemWithIcon
-              href="https://github.com/ocBruno"
               title="Github"
+              href="https://github.com/ocBruno"
               iconStaticSource={require('../public/icons/github.png')}
             />
             <ListItemWithIcon
-              href="mailto:brunocgmxus@gmail.com"
               title="Email"
+              href="mailto:brunocgmxus@gmail.com"
               iconStaticSource={require('../public/icons/email.png')}
             />
           </View>

@@ -1,30 +1,8 @@
 import React, { useEffect, ReactNode, useRef } from 'react';
 import { StyleSheet, Text, View, Animated } from 'react-native';
+import { themeCardStyles } from './Cards.styles';
 
 const styles = StyleSheet.create({
-  container: {
-    zIndex: 0,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    maxWidth: 240,
-    right: 100,
-    position: 'relative',
-    paddingVertical: 20,
-    paddingHorizontal: 15,
-    backgroundColor: 'rgb(255, 255, 255)',
-    borderWidth: 1,
-    borderRadius: 9,
-    borderStyle: 'solid',
-    borderColor: 'rgb(149, 200, 255)',
-    shadowColor: 'rgb(168, 210, 255)',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
   topbarTitle: {
     marginBottom: 20,
     fontSize: 10,
@@ -68,7 +46,7 @@ export const InfoCard: React.FunctionComponent<InfoCardProps> = (
   return (
     <Animated.View
       style={{
-        ...styles.container,
+        ...themeCardStyles.themeCardContainer,
         right: slideInFromLeftAnimation,
       }}
     >
