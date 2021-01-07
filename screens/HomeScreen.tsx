@@ -12,9 +12,9 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { InfoCard } from '../components/Cards/InfoCard';
 import { RootStackParamList } from '../App';
 import { ListItemWithIcon } from '../components/Utils/ListItemWithIcon';
-import { EntranceScreen } from '../components/Screens/EntranceScreen';
+import { EntranceScreenContainer } from '../components/Containers/EntranceScreenContainer';
 
-const screenStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   entranceScreenContainer: {
     flex: 1,
     alignItems: 'center',
@@ -54,10 +54,10 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   navigation,
 }: HomeScreenProps) => {
   return (
-    <EntranceScreen>
-      <View style={screenStyles.entranceScreenContainer}>
+    <EntranceScreenContainer>
+      <View style={styles.entranceScreenContainer}>
         <Image
-          style={screenStyles.homeBackgroundImage}
+          style={styles.homeBackgroundImage}
           source={require('../public/backgrounds/homeBackgroundImage.jpg')}
         />
         <InfoCard
@@ -84,14 +84,14 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
             />
           </View>
         </InfoCard>
-        <View style={screenStyles.getInContactButton}>
+        <View style={styles.getInContactButton}>
           <Button
             color="rgb(130, 151, 255)"
             title="Get in contact"
             onPress={() => navigation.navigate('Contact', {})}
           />
         </View>
-        <View style={screenStyles.moreAboutMeButton}>
+        <View style={styles.moreAboutMeButton}>
           <Button
             color="rgb(78, 121, 240)"
             title="More about me"
@@ -99,6 +99,6 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           />
         </View>
       </View>
-    </EntranceScreen>
+    </EntranceScreenContainer>
   );
 };

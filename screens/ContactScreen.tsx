@@ -3,12 +3,12 @@ import { StyleSheet, View, Button } from 'react-native';
 import { InfoCard } from '../components/Cards/InfoCard';
 import { ListItemWithIcon } from '../components/Utils/ListItemWithIcon';
 import { ReturnButton } from '../components/Buttons/ReturnButton';
-import { EntranceScreen } from '../components/Screens/EntranceScreen';
+import { EntranceScreenContainer } from '../components/Containers/EntranceScreenContainer';
 
-const screenStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   entranceScreenContainer: {
     flex: 1,
-    backgroundColor: 'rgb(58, 94, 161)',
+    backgroundColor: 'rgb(22, 44, 87)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -16,8 +16,8 @@ const screenStyles = StyleSheet.create({
 
 export const ContactScreen: React.FunctionComponent = () => {
   return (
-    <EntranceScreen>
-      <View style={screenStyles.entranceScreenContainer}>
+    <EntranceScreenContainer>
+      <View style={styles.entranceScreenContainer}>
         <InfoCard
           topbarTitle="Contact"
           header="Open to new opportunities!"
@@ -43,6 +43,6 @@ export const ContactScreen: React.FunctionComponent = () => {
         </InfoCard>
         <ReturnButton />
       </View>
-    </EntranceScreen>
+    </EntranceScreenContainer>
   );
 };

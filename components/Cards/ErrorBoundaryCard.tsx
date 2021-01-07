@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Animated } from 'react-native';
 import React, { useEffect, ReactNode, useRef } from 'react';
+import { StyleSheet, Text, View, Animated } from 'react-native';
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-start',

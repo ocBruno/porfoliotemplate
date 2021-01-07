@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, Animated } from 'react-native';
 import React, { useEffect, ReactNode, useRef } from 'react';
+import { StyleSheet, Text, View, Animated } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 0,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     maxWidth: 240,
@@ -55,20 +56,20 @@ interface InfoCardProps {
 export const InfoCard: React.FunctionComponent<InfoCardProps> = (
   props: InfoCardProps
 ) => {
-  const fadeInFromRightAnimation = useRef(new Animated.Value(100)).current; // Initial value for right: 100
+  const slideInFromLeftAnimation = useRef(new Animated.Value(100)).current; // Initial value for right: 100
   useEffect(() => {
-    Animated.timing(fadeInFromRightAnimation, {
+    Animated.timing(slideInFromLeftAnimation, {
       toValue: 0,
       useNativeDriver: false,
       duration: 300,
     }).start();
-  }, [fadeInFromRightAnimation]);
+  }, [slideInFromLeftAnimation]);
 
   return (
     <Animated.View
       style={{
         ...styles.container,
-        right: fadeInFromRightAnimation,
+        right: slideInFromLeftAnimation,
       }}
     >
       <Text style={styles.topbarTitle}>{props.topbarTitle}</Text>
